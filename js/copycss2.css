@@ -1,0 +1,394 @@
+@font-face {
+	font-family: 'Gotham Rounded';
+	src: url('fonts/GothamRounded-Bold.woff2') format('woff2'),
+		url('fonts/GothamRounded-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham Rounded';
+	src: url('fonts/GothamRounded-Light.woff2') format('woff2'),
+		url('fonts/GothamRounded-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham Rounded';
+	src: url('fonts/GothamRounded-Book.woff2') format('woff2'),
+		url('fonts/GothamRounded-Book.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 auto;
+	font-family: Gotham Rounded, sans-serif;
+	padding-bottom: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+	padding: 0 40px;
+	grid-template-areas: ". content content content content .";
+	justify-items: center;
+}
+
+.formkit-powered-by {
+	display: none !important;
+}
+
+.grid-video {
+	align-items: center;
+	margin-top: 50px;
+  grid-template-areas: "video video video benefits benefits benefits";
+}
+
+.grid-benefit-detail {
+	margin-top: 4rem;
+}
+
+.grid-video video {
+	grid-area: video;
+	width: 100%;
+	max-width: 900px;
+}
+
+.content {
+	grid-area: content;
+	max-width: 1000px;
+	width: 100%;
+}
+
+.dark-header {
+	position: relative;
+	color: white;
+	background-color: #005B89;
+	z-index: 1;
+}
+
+.light-header {
+	color: white;
+	background-color: #00AAFF;
+	padding-top: 500px;
+	margin-top: -500px;
+}
+
+.dark-header-divider, .light-header-divider {
+	height: 150px;
+	background-position: bottom left;
+	background-size: cover;
+	margin-top: -5px;
+}
+
+.dark-header-divider {
+	background-image: url("images/dark-background.svg");
+	position: relative;
+	z-index: 1;
+}
+
+.light-header-divider {
+	background-image: url("images/light-background.svg");
+}
+
+.logo {
+	width: 50px;
+	margin-right: .5rem;
+}
+
+.brand-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.title {
+	font-size: 3rem;
+	text-align: center;
+}
+
+.sub-title {
+	font-size: 1.5rem;
+	text-align: center;
+	font-weight: normal;
+}
+
+.formkit-form {
+	max-width: initial !important;
+}
+
+.formkit-form [data-style="clean"] {
+	padding: 0 !important;
+}
+
+.formkit-fields {
+	display: flex !important;
+	justify-content: center !important;
+	margin-top: 4rem !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-bottom: 1rem !important;
+	font-size: 1.75rem !important;
+}
+
+.formkit-input {
+	font-size: 1.75rem !important;
+	background: white !important;
+	color: #005B89 !important;
+	border: 2px solid black !important;
+	border-radius: .5em !important;
+	padding: .5em 1em !important;
+	flex-grow: 1 !important;
+	margin-right: 1em !important;
+	outline: none !important;
+}
+
+.formkit-input:focus {
+	background-color: #DCF3FF !important;
+}
+
+.formkit-submit {
+	font-size: 1.75rem !important;
+	color: white !important;
+	background-color: #111 !important;
+	border: 2px solid white !important;
+	border-radius: .5em !important;
+	flex-grow: 1 !important;
+	padding: .5em 1em !important;
+	max-width: 250px !important;
+	cursor: pointer !important;
+}
+
+.formkit-submit > span {
+	padding: 0 !important;
+}
+
+.formkit-submit:hover, .formkit-submit:focus {
+	background-color: #333 !important;
+}
+
+.error-message {
+	background-color: rgba(255, 0, 0, 0.667);
+	border: 1px solid red;
+	border-radius: 1rem;
+	color: white;
+	padding: 1rem 1.5rem;
+	font-size: 1.5rem;
+}
+
+.success-message, .formkit-alert-success {
+	background-color: rgba(0, 255, 0, 0.667);
+	border: 1px solid green;
+	border-radius: 1rem;
+	color: white;
+	padding: 1rem 1.5rem;
+	font-size: 1.5rem;
+}
+
+.hide {
+	display: none;
+}
+
+.benefits-section {
+	margin-left: 3rem;
+	grid-area: benefits;
+	justify-self: flex-start;
+}
+
+.benefit {
+	display: flex;
+	align-items: center;
+	font-size: 3rem;
+	margin-bottom: 3rem;
+}
+
+.benefit:last-child {
+	margin-bottom: 0;
+}
+
+.benefit img {
+	margin-right: 2rem;
+	height: 3rem;
+}
+
+.benefit-detail {
+	grid-column: span 2;
+	margin: 2rem;
+}
+
+.benefit-detail-title {
+	text-align: center;
+	font-size: 1.75rem;
+	color: #333;
+	margin-bottom: 2rem;
+}
+
+.benefit-detail-text {
+	font-size: 1.5rem;
+	color: #444;
+	font-weight: lighter;
+}
+
+@media (max-width: 1200px) {
+	.grid {
+		grid-template-columns: 1fr;
+		grid-template-areas: "content";
+	}
+
+	.grid-benefit-detail {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.grid-video {
+		grid-template-columns: 1fr;
+		grid-template-areas: "video" "benefits";
+	}
+
+	.benefits-section {
+		margin-top: 2rem;
+		margin-left: 0;
+		justify-self: auto;
+	}
+}
+
+@media (max-width: 1000px) {
+	.grid-benefit-detail {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 800px) {
+	.grid-video {
+		margin-top: 1rem;
+	}
+
+	.formik-fields {
+		flex-direction: column !important;
+	}
+
+	.formkit-submit {
+		max-width: initial !important;
+		width: 100% !important;
+	}
+
+	.formkit-input {
+		margin-right: 0 !important;
+		margin-bottom: 10px !important;
+		width: 100% !important;
+	}
+
+	.benefit {
+		font-size: 2rem;
+	}
+
+	.benefit img {
+		height: 2rem;
+		margin-right: 1rem;
+	}
+}
+
+@media (max-width: 500px) {
+	.brand-name {
+		display: none;
+	}
+
+	.logo {
+		margin-top: 1rem;
+	}
+
+	.formkit-fields {
+		margin: 0 !important;
+		font-size: 1.25rem !important;
+	}
+
+	.benefit {
+		font-size: 1.25rem;
+	}
+
+	.benefit-detail {
+		margin-top: 1rem;
+	}
+
+	.benefit-detail-title {
+		font-size: 1.25rem;
+	}
+
+	.benefit-detail-text {
+		font-size: 1.15rem;
+	}
+
+	.benefit img {
+		height: 1.25rem;
+		margin-right: .5rem;
+	}
+}
+
+
+/* Launch Pages */
+
+.launch-container .video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+}
+
+.launch-container .video-container iframe, .video-container object, .video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.launch-container {
+	width: 1000px;
+	max-width: 90%;
+	margin: 0 auto;
+	z-index: 100;
+	position: relative;
+	top: -50px
+}
+
+.launch-container .description {
+	margin-top: 2rem;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.launch-container .launch-btn {
+	color: white;
+	background-color: #00AAFF;
+	border-radius: .5em;
+	padding: .5em 1em;
+	text-decoration: none;
+}
+
+.launch-container .launch-btn:hover {
+	background-color: rgb(0, 114, 172);
+}
+
+.launch.title {
+	margin-bottom: 0;
+}
+
+.main-page-text {
+	text-align: center;
+	font-size: 2rem;
+	max-width: 1200px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+@media (max-width: 400px) {
+	.launch-container .description {
+		font-size: 1.5rem;
+	}
+}

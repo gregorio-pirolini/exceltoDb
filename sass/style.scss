@@ -1,0 +1,77 @@
+body {
+  font-size: 16px;
+}
+table,
+tr,
+td {
+  border: 1px solid black;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.grid_container_item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.grid_container_items {
+  background-color: aqua;
+  cursor: pointer;
+}
+#myList,
+#upload_page,
+#list_page,
+#list_page_error #delete_page {
+  display: none;
+}
+
+.singleListInfo {
+  display: grid;
+  margin-bottom: 1em;
+  grid-template-areas: "myArea";
+}
+
+.listBitImg {
+  display: flex;
+  max-height: 250px;
+  justify-content: center;
+  margin-bottom: 1em;
+  img {
+    object-fit: contain;
+  }
+}
+
+.singleList {
+  border-top: 1px solid black;
+}
+
+.listBitKurz {
+  font-weight: 900;
+}
+
+.singleListInfo {
+  background-color: yellow;
+  display: grid;
+  margin-bottom: 1em;
+  grid-template-areas: "myArea";
+}
+
+@media (min-width: 400px) {
+  .singleListInfo {
+    background-color: red;
+    grid-template-areas: "myArea myArea ." "..." "...";
+  }
+}
+@media (min-width: 600px) {
+  .singleListInfo {
+    background-color: green;
+    grid-template-areas: "myArea myArea .";
+  }
+}

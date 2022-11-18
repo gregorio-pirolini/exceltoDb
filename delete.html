@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sass/style.css">
+    <script src="js/upload.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <nav<div class='grid_container'>
+        <div class='grid_container_item'>
+          <span class='grid_container_items' id='upload'>upload</span>
+        </div>  
+        <div class='grid_container_item'>
+          <span class='grid_container_items' id='list'>show list</span>
+        </div> 
+        </div>
+    </nav>
+
+
+<h1 id ='showPage'>SAVE EXCEL TO DB</h1>
+
+<div id='upload_page'>
+<h2>1 Upload one file</h2>
+             <input id="fileupload" type="file" name="fileupload" />
+<button id="upload-button" onclick="uploadFile()"> Upload </button>
+<div id="response">response: <span id='phpSays'> * span * </span> </div>
+ 
+          <h2>show Uploaded Results</h2>
+<div id="resultUpload">resultUpload: <span id='resultUploadList'> * span resultUploadList * </span></div>
+                            <a href="testLibrary.php">testLibrary</a>
+ 
+
+
+
+<div id='list_page'>
+
+
+<h2>see uploaded files</h2>
+
+</div>
+</body>
+</html>
