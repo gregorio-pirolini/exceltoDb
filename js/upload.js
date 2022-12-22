@@ -1,14 +1,13 @@
 const list_page = document.getElementById("list_page");
 const upload_page = document.getElementById("upload_page");
-const grid_container_items = document.getElementsByClassName(
-  "grid_container_items"
-);
+const nav_item = document.getElementsByClassName("nav-item");
 const delete_text = document.getElementById("delete_text");
 const showPage = document.getElementById("showPage");
 const phpSays = document.getElementById("phpSays");
 const resultUploadList = document.getElementById("resultUploadList");
 const list_page_error = document.getElementById("list_page_error");
 const myList = document.getElementById("myList");
+
 // 1 upload xlx file
 async function uploadFile() {
   let formData = new FormData();
@@ -158,7 +157,7 @@ function showDB() {
           listBitEdit.className = "listBitEdit";
           let listBitEditButton = document.createElement("button");
           listBitEditButton.innerHTML = "EDIT";
-          listBitEditButton.className = "listBitDeleteButton";
+          listBitEditButton.className = "listBitEditButton";
           listBitEditButton.id = "listBitEdit_" + value.id;
           listButtons.appendChild(listBitEditButton);
 
@@ -179,16 +178,38 @@ function showDB() {
 
           singleList.append(singleListInfo);
           myList.append(singleList);
-          console.log(`${key}: ${value}`);
+          // console.log(`${key}: ${value}`);
           // addToList(value);
         }
       }
+    })
+    .then(function (response) {
+      console.log("what happens");
+
+      const listBitEditButton2 =
+        document.getElementsByClassName("listBitEditButton");
+      const listBitDeleteButton2 = document.getElementsByClassName(
+        "listBitDeleteButton"
+      );
+      console.log(Object.keys(listBitEditButton2).length);
+      console.log(Object.keys(listBitDeleteButton2).length);
+
+      Object.keys(listBitDeleteButton2).forEach((key) => {
+        listBitDeleteButton2[key].addEventListener("click", function (event) {
+          deleteMe(event);
+        });
+      });
+      // //edit button
+      Object.keys(listBitEditButton2).forEach((key) => {
+        listBitEditButton2[key].addEventListener("click", function (event) {
+          editMe(event);
+        });
+      });
     });
+
+  // //delete buttonaleert
 }
 
-// alert(
-//   "https://www.w3schools.com/CSSref/playdemo.php?filename=playcss_grid-template-areas"
-// );
 let showResult = (obj) => {
   // reverswe array with map
 
@@ -253,6 +274,46 @@ let preUpdatePage = (e) => {
   UpdatePage(text);
 };
 
-Object.keys(grid_container_items).forEach((key) => {
-  grid_container_items[key].addEventListener("click", preUpdatePage);
+const deleteMe = (e) => {
+  console.log("deleteMe: " + e.target.id);
+  let key = e.target.id.replace(/\D/g, "");
+  //remove from db
+
+  removeFromDb(key);
+
+  //remove from array??
+  removeFromList(key);
+};
+
+// let formData = new FormData();
+// formData.append("file", fileupload.files[0]);
+// const response = await fetch("php/upload.php", {
+//   method: "POST",
+//   body: formData,
+// })
+function removeFromList(key) {
+  const element = document.getElementById("single_list_" + key);
+  element.remove();
+}
+
+function removeFromDb(key) {
+  let formData = new FormData();
+  formData.append("key", key);
+  const response = fetch("php/deleteDbSingle.php", {
+    method: "POST",
+    body: formData,
+  }) // Converting to JSON
+    .then((response) => response.json())
+
+    // Displaying results to console
+    .then((json) => console.log(json));
+}
+
+const editMe = (e) => {
+  console.log("editMe: " + e.target.id);
+  let key = parseInt(e.target.id);
+};
+//EVENTS
+Object.keys(nav_item).forEach((key) => {
+  nav_item[key].addEventListener("click", preUpdatePage);
 });
